@@ -1,0 +1,41 @@
+{
+    "name": "macfja/php-kvo",
+    "description": "The KVO (Key Value Observing) design pattern in PHP",
+    "keywords": ["KVC", "KVO", "Key Value Observing", "Design Pattern"],
+    "authors": [
+        {
+            "name": "MacFJA",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "eloquent/pops": "^4.1",
+        "php": ">=5.4.0",
+        "macfja/value-provider": "^0.3.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.5",
+        "phpunit/phpunit": "^5.2",
+        "phpmd/phpmd": "^2.3",
+        "sebastian/phpcpd": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MacFJA\\PhpKVO\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MacFJA\\PhpKVO\\Test\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "phpmd lib/ text cleancode,codesize,controversial,design,naming,unusedcode",
+            "phpcpd lib/",
+            "phpcs",
+            "phpunit"
+        ]
+    }
+}

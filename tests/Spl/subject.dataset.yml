@@ -1,0 +1,34 @@
+- expected:
+    key: k
+    source: s
+    old: o
+    requested: r
+    prior: false
+    new: n
+  payload: &payload
+    key: k
+    old: o
+    requested: r
+    new: n
+  prior: false
+  source: s
+- expected:
+    key: k
+    source: s
+    old: o
+    requested: r
+    new: null
+    prior: true
+  playload: *payload
+  prior: true
+  source: s
+- expected:
+    key: k
+    source: s2
+    old: o
+    requested: r
+    new: null
+    prior: true
+  playload: *payload
+  prior: true
+  source: s2
