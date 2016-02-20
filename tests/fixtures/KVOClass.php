@@ -16,6 +16,15 @@ class KVOClass extends AbstractObservable
 {
     protected $value = 10;
     protected $progress = 2;
+    protected $protected = 9;
+
+    /**
+     * @return int
+     */
+    public function getProtected()
+    {
+        return $this->protected;
+    }
 
     /**
      * @return int

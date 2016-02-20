@@ -132,7 +132,12 @@ trait ObservableTrait
 
         $this->willChangeValueForKey($key, Observer::SOURCE_KVC, $oldValue, $initialValue);
 
-        $this->provider->setValue($this, $key, $value);
+        try {
+            $this->provider->setValue($this, $key, $value);
+        } catch (\InvalidArgumentException $e) {
+            // Try the in scope access
+            $this->{$key} = $value;
+        }
 
         $newValue = $this->provider->getValue($this, $key);
 

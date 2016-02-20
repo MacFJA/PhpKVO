@@ -161,13 +161,25 @@ class KVOTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        $mock2 = self::getMockBuilder('MacFJA\PhpKVO\Listener')
+            ->disableOriginalConstructor()
+            ->getMock();
+
         $mock->expects(self::once())->method('observeValueForKeyPath')
             ->with('progress', $object, array(
                 Observer::CHANGE_PRIOR => false,
                 Observer::CHANGE_SOURCE => Observer::SOURCE_KVC,
             ));
 
+        $mock2->expects(self::once())->method('observeValueForKeyPath')
+            ->with('protected', $object, array(
+                Observer::CHANGE_PRIOR => false,
+                Observer::CHANGE_SOURCE => Observer::SOURCE_KVC,
+            ));
+
         $object->addObserverForKey($mock, 'progress');
+        $object->addObserverForKey($mock2, 'protected');
         $object->setValueForKey('progress', 200);
+        $object->setValueForKey('protected', 345);
     }
 }
