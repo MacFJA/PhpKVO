@@ -56,7 +56,7 @@ $downloader->download()
 
 ---
 
-A complete example can be found in the directory [example](example).
+A complete examples can be found in the directory [examples](examples).
 
 ## API<a id="api"></a>
 
@@ -108,10 +108,10 @@ This method should be call **before** the key value change.
 This method trigger a notification for all [`Listener`](#api_listener) that registered for a key without the option `Observer::OPTION_PRIOR`.  
 This method should be call **after** the key value change.
 
-| Type        | Variable          | Description |
-|-------------|-------------------|-------------|
-| string      | `$key`            | The key that is changed. |
-| string      | `$source`         | The source/type of change. (More information below). |
+| Type          | Variable          | Description |
+|---------------|-------------------|-------------|
+| string        | `$key`            | The key that is changed. |
+| string        | `$source`         | The source/type of change. (More information below). |
 | mixed\|`null` | `$oldValue` _optional_ | The value of the key before the change. |
 | mixed\|`null` | `$requestedValue` _optional_ | The requested new value of the key. |
 | mixed\|`null` | `$newValue` _optional_ | The current value of the key. |
